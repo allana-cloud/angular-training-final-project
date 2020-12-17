@@ -1,0 +1,11 @@
+.jt-background {
+    background: url('https://picsum.photos/seed/picsum/1024/200');     
+    -webkit-background-size: cover; 
+    -moz-background-size: cover; 
+    -o-background-size: cover; 
+    background-size: cover;    
+}
+
+.bigy {
+    font-size: 5em;    
+}
