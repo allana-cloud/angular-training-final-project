@@ -8,10 +8,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Specifications
 
-Elements
+Layouts
 
     One-Column
     Two-Column
+
+Elements
+    
     Header
         - app title
         - app sub title
