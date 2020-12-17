@@ -3,14 +3,40 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { OneColumnComponent } from './layouts/one-column/one-column.component';
+import { TwoColumnComponent } from './layouts/two-column/two-column.component';
+import { HeaderComponent } from './elements/header/header.component';
+import { FooterComponent } from './elements/footer/footer.component';
+import { NavComponent } from './elements/nav/nav.component';
+import { SidebarComponent } from './elements/sidebar/sidebar.component';
+import { HomeComponent } from './pages/home/home.component';
+import { TicketsComponent } from './pages/tickets/tickets.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { LoginComponent } from './pages/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    OneColumnComponent,
+    TwoColumnComponent,
+    HeaderComponent,
+    FooterComponent,
+    NavComponent,
+    SidebarComponent,
+    HomeComponent,
+    TicketsComponent,
+    AboutUsComponent,
+    ProfileComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
