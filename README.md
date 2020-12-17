@@ -6,19 +6,15 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * SweetAlert 2
 
 
-# Specufications
+# Specifications
 
 Elements
-
     One-Column
-
-    Two-Column    
-
+    Two-Column
     Header
         - app title
         - app sub title
         - Jumbotron
-
     Footer
         - not logged
             - has the following links
@@ -31,7 +27,6 @@ Elements
                 - Home
                 - Tickets
                 - About Us
-
     Nav
         - not-logged
             - Home
@@ -42,7 +37,6 @@ Elements
             - Tickets
             - About Us
             - (far right) button Logout
-
     SideBar
         - not-logged
             - no data
@@ -55,23 +49,22 @@ Elements
             - Mobile No.
 
 Pages
-
     /home (two-column)
 
     /tickets (two-column)    
-        - not logged displat swal
+        - not logged display swal
             - will not load ticket should be login to API
         - logged
             - display tickets
 
         /ticket-list
-
-    /about-us (one-column)
-
+    
     /profile (two-column)
         - show user profile
         - with update button
         - any updates with this section reflects immediately on the Sidebar
+
+    /about-us (one-column)
 
     /login (one-column)
         - submit click empty fields show swal "Form Field Required" Please complete all required fields
