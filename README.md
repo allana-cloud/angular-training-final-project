@@ -9,12 +9,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # Specufications
 
 Elements
+
     One-Column
+
     Two-Column    
+
     Header
         - app title
         - app sub title
         - Jumbotron
+
     Footer
         - not logged
             - has the following links
@@ -27,6 +31,7 @@ Elements
                 - Home
                 - Tickets
                 - About Us
+
     Nav
         - not-logged
             - Home
@@ -50,8 +55,8 @@ Elements
             - Mobile No.
 
 Pages
-    /home (two-column)
 
+    /home (two-column)
 
     /tickets (two-column)    
         - not logged displat swal
