@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'finalProject';
+  static readonly title = 'Angular Training Final Project - ';
 }
