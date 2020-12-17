@@ -7,7 +7,6 @@ import { OneColumnComponent } from './layouts/one-column/one-column.component';
 import { TwoColumnComponent } from './layouts/two-column/two-column.component';
 import { HeaderComponent } from './elements/header/header.component';
 import { FooterComponent } from './elements/footer/footer.component';
-import { NavComponent } from './elements/nav/nav.component';
 import { SidebarComponent } from './elements/sidebar/sidebar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TicketsComponent } from './pages/tickets/tickets.component';
@@ -24,7 +23,6 @@ import { HttpClientModule } from '@angular/common/http';
     TwoColumnComponent,
     HeaderComponent,
     FooterComponent,
-    NavComponent,
     SidebarComponent,
     HomeComponent,
     TicketsComponent,
