@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { AppComponent } from '../../app.component';
 
 @Component({
@@ -9,12 +8,10 @@ import { AppComponent } from '../../app.component';
 })
 export class HomeComponent implements OnInit {
 
-  section: string  = 'Home';
-  
-  constructor(private titleService: Title) { }
+  constructor(private appComponent: AppComponent) { }
 
   ngOnInit(): void {
-    this.titleService.setTitle(AppComponent.title + this.section);
+    this.appComponent.setTitle('Home');
   }
 
 }
