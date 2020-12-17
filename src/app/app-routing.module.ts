@@ -7,6 +7,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { OneColumnComponent } from './layouts/one-column/one-column.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { LoginComponent } from './pages/login/login.component';
+import { NotFoundComponent } from './elements/not-found/not-found.component';
 
 const routes: Routes = [
   { 
@@ -14,6 +15,7 @@ const routes: Routes = [
     component: TwoColumnComponent , 
     children: [
       { path: '', component: HomeComponent },
+      { path: 'home', redirectTo: '' },
       { path: 'tickets', component: TicketsComponent },
       { path: 'profile', component: ProfileComponent }
     ]
@@ -31,7 +33,8 @@ const routes: Routes = [
     children: [
       { path: '', component: LoginComponent }
     ]
-  }
+  },
+  { path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({
