@@ -11,15 +11,20 @@ export class SidebarComponent implements OnInit {
   
   isLogged: boolean;
 
-  userProfile: UserProfile = {
+  defaultUserProfileValues = {
     name: '',
     jobTitle: '',
     email: '',
-    mobileNumber: ''
-  };
+    mobileNumber: '',
+    firstName: '',
+    lastName: ''
+  }
+
+  userProfile: UserProfile;
 
   constructor(private globalService: GlobalService) { 
     this.isLogged = false;
+    this.userProfile = this.defaultUserProfileValues;
   }
 
   ngOnInit(): void {
@@ -43,12 +48,7 @@ export class SidebarComponent implements OnInit {
       (logged: boolean) => {   
         if (!logged) {
           // console.log('has logged out clear user data now');
-          this.userProfile = {
-            name: '',
-            jobTitle: '',
-            email: '',
-            mobileNumber: ''
-          }
+          this.userProfile = this.defaultUserProfileValues;
           this.isLogged = logged;          
         }    
       }
