@@ -54,11 +54,14 @@ export class GlobalService {
   }
 
   getUserProfileData(): UserProfile {
-    const userProfile: UserProfile = {
+    let userProfile: UserProfile = {
       name: '',
       jobTitle: '',
       email: '',
-      mobileNumber: ''
+      mobileNumber: '',
+      firstName: '',
+      lastName: '',
+      photoUrl: 'https://via.placeholder.com/150'
     };
 
     const fromStorageProfileData = localStorage.getItem('profileData');    
@@ -68,6 +71,9 @@ export class GlobalService {
       userProfile.jobTitle = profileData.meta.job_title;
       userProfile.email = profileData.email;
       userProfile.mobileNumber = profileData.meta.mobile_number;
+      userProfile.lastName = profileData.meta.last_name;
+      userProfile.firstName = profileData.meta.first_name;
+      userProfile. photoUrl = profileData.meta.photo_url;
     } 
     
     return userProfile;
@@ -82,7 +88,8 @@ export class GlobalService {
       }).subscribe(
         (response: any) => {        
           if (response.status === 'success') {
-            // set profileData subject             
+            console.log(response.data);
+            // set profileData subject
             localStorage.setItem('profileData', JSON.stringify(response.data));
             this.profileData.next(true);
           }        

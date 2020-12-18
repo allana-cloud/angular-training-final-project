@@ -17,7 +17,8 @@ export class SidebarComponent implements OnInit {
     email: '',
     mobileNumber: '',
     firstName: '',
-    lastName: ''
+    lastName: '',
+    photoUrl: 'https://via.placeholder.com/150'
   }
 
   userProfile: UserProfile;
