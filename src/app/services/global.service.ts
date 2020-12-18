@@ -61,7 +61,8 @@ export class GlobalService {
       mobileNumber: '',
       firstName: '',
       lastName: '',
-      photoUrl: 'https://via.placeholder.com/150'
+      photoUrl: 'https://via.placeholder.com/150',
+      alias: '',
     };
 
     const fromStorageProfileData = localStorage.getItem('profileData');    
@@ -73,7 +74,8 @@ export class GlobalService {
       userProfile.mobileNumber = profileData.meta.mobile_number;
       userProfile.lastName = profileData.meta.last_name;
       userProfile.firstName = profileData.meta.first_name;
-      userProfile. photoUrl = profileData.meta.photo_url;
+      userProfile.photoUrl = profileData.meta.photo_url;
+      userProfile.alias = profileData.alias;
     } 
     
     return userProfile;
@@ -88,7 +90,7 @@ export class GlobalService {
       }).subscribe(
         (response: any) => {        
           if (response.status === 'success') {
-            console.log(response.data);
+            // console.log(response.data);
             // set profileData subject
             localStorage.setItem('profileData', JSON.stringify(response.data));
             this.profileData.next(true);
