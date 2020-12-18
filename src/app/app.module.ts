@@ -13,7 +13,7 @@ import { TicketsComponent } from './pages/tickets/tickets.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponent } from './elements/not-found/not-found.component';
 
@@ -36,7 +36,8 @@ import { NotFoundComponent } from './elements/not-found/not-found.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     Title
