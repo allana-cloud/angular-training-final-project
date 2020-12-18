@@ -9,6 +9,8 @@ import { UserProfile } from '../../models/profile.model';
 })
 export class SidebarComponent implements OnInit {
   
+  isLogged: boolean;
+
   userProfile: UserProfile = {
     name: '',
     jobTitle: '',
@@ -16,12 +18,16 @@ export class SidebarComponent implements OnInit {
     mobileNumber: ''
   };
 
-  constructor(private globalService: GlobalService) { }
+  constructor(private globalService: GlobalService) { 
+    this.isLogged = false;
+  }
 
   ngOnInit(): void {
     // console.log('sidebar-OnInit');
-    if (this.globalService.isAuthenticated()) {      
-      this.userProfile = this.globalService.getUserProfileData();        
+    this.isLogged = this.globalService.isAuthenticated();
+    if (this.isLogged) {
+      this.userProfile = this.globalService.getUserProfileData();
+      
     }
     
     this.globalService.profileData.subscribe(
@@ -42,7 +48,8 @@ export class SidebarComponent implements OnInit {
             jobTitle: '',
             email: '',
             mobileNumber: ''
-          }          
+          }
+          this.isLogged = logged;          
         }    
       }
     );

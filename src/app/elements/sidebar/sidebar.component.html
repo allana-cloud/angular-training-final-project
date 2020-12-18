@@ -6,6 +6,12 @@
 </div>
 
 <br class="clearfix">
+<div *ngIf="isLogged" class="row">
+    <div class="col">        
+        <a [routerLink]="['profile']" class="btn btn-dark col">Edit Profile</a>
+    </div>
+</div>
+<br class="clearfix">
 
 <div class="row">
     <div class="col">
