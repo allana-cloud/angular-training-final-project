@@ -55,12 +55,14 @@ export class ProfileComponent implements OnInit {
        * send update id there are changes in the form else do not send
        * update request
        */
-      console.log('onSubmit-is_there_any_changes_to_the_form:', this.profileForm.dirty);
+      // console.log('onSubmit-is_there_any_changes_to_the_form:', this.profileForm.dirty);
       if (this.profileForm.dirty) {
         this.globalService.httpUpdateProfile(payload);
       }      
+
+      Swal.fire('Success', 'Profile was updated!', 'success');
     } else {
-      Swal.fire('Form field error', 'Please fill in required fields', 'error')
+      Swal.fire('Form field error', 'Please fill in required fields', 'error');
     }    
   }
   
