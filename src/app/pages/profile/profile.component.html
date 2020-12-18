@@ -8,13 +8,13 @@
                     <div class="col">
                         <div class="form-group">
                             <label for="firstName">First Name</label>
-                            <input formControlName="firstName" type="text" class="form-control" id="firstName">                            
+                            <input formControlName="firstName" type="text" class="form-control" id="firstName" [ngClass]="profileForm.get('firstName').invalid ? 'is-invalid' : 'is-valid'">
                           </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
                             <label for="lastName">Last Name</label>
-                            <input formControlName="lastName" type="text" class="form-control" id="lastName">                            
+                            <input formControlName="lastName" type="text" class="form-control" id="lastName"  [ngClass]="profileForm.get('lastName').invalid ? 'is-invalid' : 'is-valid'">
                           </div>
                     </div>
                 </div>
@@ -22,13 +22,13 @@
                     <div class="col">
                         <div class="form-group">
                             <label for="alias">Alias</label>
-                            <input formControlName="alias" type="text" class="form-control" id="alias">
+                            <input formControlName="alias" type="text" class="form-control" id="alias" [ngClass]="profileForm.get('alias').invalid ? 'is-invalid' : 'is-valid'">
                           </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
                             <label for="jobTitle">Job Title</label>
-                            <input formControlName="jobTitle" type="text" class="form-control" id="jobTitle">
+                            <input formControlName="jobTitle" type="text" class="form-control" id="jobTitle" [ngClass]="profileForm.get('jobTitle').invalid ? 'is-invalid' : 'is-valid'">
                           </div>
                     </div>
                 </div>
@@ -36,13 +36,13 @@
                     <div class="col">
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input formControlName="email" type="email" class="form-control" id="email">
+                            <input formControlName="email" type="email" class="form-control" id="email" [ngClass]="profileForm.get('email').invalid ? 'is-invalid' : 'is-valid'">
                           </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
                             <label for="mobileNumber">Mobile Number</label>
-                            <input formControlName="mobileNumber" type="text" class="form-control" id="mobileNumber">
+                            <input formControlName="mobileNumber" type="text" class="form-control" id="mobileNumber" [ngClass]="profileForm.get('mobileNumber').invalid ? 'is-invalid' : 'is-valid'">
                           </div>
                     </div>
                 </div>

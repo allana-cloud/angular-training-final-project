@@ -14,9 +14,7 @@ export class GlobalService {
 
   isLogged = new Subject();
   profileData = new Subject();
-  // onHttpLogin = new Subject();
-  // onHttpUpdateProfile = new Subject();
-
+  
   constructor(private http: HttpClient) { 
     this.token = '';    
   }
@@ -32,6 +30,7 @@ export class GlobalService {
           // set listeners data
           this.isLogged.next(true);
           localStorage.setItem('isLogged', 'yes');
+          localStorage.setItem('token', this.token);
          }  
       },
       (error) => {
@@ -50,6 +49,7 @@ export class GlobalService {
   logout(): void {
     localStorage.removeItem('isLogged');
     localStorage.removeItem('profileData');
+    localStorage.removeItem('token');
     this.isLogged.next(false);
   }
 
@@ -103,46 +103,40 @@ export class GlobalService {
     }
   }
 
-  // httpUpdateProfile(data: any): void {
-  //   const url = 'https://stage-api-ubertickets.cloudstaff.com/v1/users/my';
-  //   const token = this.getToken();
+  httpUpdateProfile(data: any): void {
+    const url = 'https://stage-api-ubertickets.cloudstaff.com/v1/users/my';
+    // console.log('httpUpdateProfile:', data);
+    // console.log('[',this.getToken(),']');
+    this.http.put(url, data, {
+      headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.getToken())
+    }).subscribe(
+      (response: any) => {        
+        if (response.status === 'success') {          
+          console.log('httpUpdateProfile-success:',response.data);
+          // set profileData subject
+          localStorage.setItem('profileData', JSON.stringify(response.data));
+          this.profileData.next(true);
+        }
+      },
+      (error) => {
+        console.log('httpUpdateProfile error response:', error);
+      }
+    );
+  }
 
-  //   this.http.put(url, data, {
-  //     headers: new HttpHeaders().set('Authorization', 'Bearer ' + token)
-  //   }).subscribe(
-  //     (response: any) => {
-  //       // console.log('update from profile service', response);
-  //       if (response.status === 'success') {
-  //         this.onHttpUpdateProfile.next(response.data);
-  //       }
-  //     },
-  //     (error) => {
-  //       console.log('error response in httpUpdateProfile', error);
-  //     }
-  //   );
-  // }
+  /**
+   * the reason why i added this is because there are times that when in edit-profile
+   * token gets blank.
+   * TODO: need to invetigate this further!
+   */
+  private getToken(): string {    
+    let token = this.token;
 
-  // setToken(token: string): void {
-  //   localStorage.setItem('token', token);
-  // }
+    if (this.token.length == 0) {
+      token = localStorage.getItem('token');
+    } 
 
-  // getToken(): string {
-  //   const token = localStorage.getItem('token');
-  //   return token?.toString() || '';
-  // }
+    return token;
+  }
 
-  // checkLogStatus(): void {
-  //   const token = localStorage.getItem('token');
-
-  //   if (token) {
-  //     this.isLogged.next(true);
-  //   } else {
-  //     this.isLogged.next(false);
-  //   }
-  // }
-
-  // deleteToken(): void {
-  //   localStorage.removeItem('token');
-  //   this.isLogged.next(false);
-  // }
 }
