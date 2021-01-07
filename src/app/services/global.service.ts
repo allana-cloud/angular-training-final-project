@@ -139,11 +139,7 @@ export class GlobalService {
 
     return token;
   }
-
-  test(): void {
-    console.log(this.getToken());
-  }
-
+  
   getMyTickets(): void {
     const url = 'https://stage-api-ubertickets.cloudstaff.com/v1/tickets/my';
 
