@@ -1,1 +1,31 @@
-<p>tickets works!</p>
+<div class="row">
+    <div class="col">        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th colspan="5">Total: {{ totalRecords }} records</th>
+                </tr>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Assignee</th>
+                    <th scope="col">Priority</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of tickets">
+                    <td scope="row">                        
+                        [{{ row.template.alias }}] {{ row.template.name }}
+                    </td>
+                    <td>
+                        {{ row.assignee === null ? 'Unassigned' : row.assignee.alias }}                        
+                    </td>
+                    <td>{{ row.priority | titlecase }}</td>
+                    <td>{{ row.status | titlecase }}</td>
+                    <td><button class="btn btn-dark">View</button></td>                    
+                </tr>                
+            </tbody>
+        </table>
+    </div>
+</div>

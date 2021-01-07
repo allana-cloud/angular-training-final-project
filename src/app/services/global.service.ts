@@ -14,6 +14,7 @@ export class GlobalService {
 
   isLogged = new Subject();
   profileData = new Subject();
+  ticketsData = new Subject();
   
   constructor(private http: HttpClient) { 
     this.token = '';    
@@ -137,6 +138,27 @@ export class GlobalService {
     } 
 
     return token;
+  }
+
+  test(): void {
+    console.log(this.getToken());
+  }
+
+  getMyTickets(): void {
+    const url = 'https://stage-api-ubertickets.cloudstaff.com/v1/tickets/my';
+
+    this.http.get(url, {
+      headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.getToken())
+    }).subscribe(
+      (response: any) => {
+        if (response.status === 'success') {
+          this.ticketsData.next(response.data);
+        }
+      },
+      (error) => {
+        console.log('getMyTickets error response:', error);
+      }
+    );
   }
 
 }
